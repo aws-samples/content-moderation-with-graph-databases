@@ -1,0 +1,5 @@
+gremlinpython
+requests
+urllib3<2
+
+
