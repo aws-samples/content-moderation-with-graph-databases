@@ -44,7 +44,7 @@ Then you need to install the packages needed for the Lambda Layer into the corre
 $ pip install -r lambda_requirements.txt --target assets/ContentModLayer/python 
 ```
  
-## Deploy the CDK template 
+## Deploy the CDK template 
 
 At this point you can now synthesize the CloudFormation template for this code.
 
