@@ -36,6 +36,8 @@ Once the virtualenv is activated, you can install the required dependencies.
 $ pip install -r requirements.txt
 ```
 
+Ensure you have AWS CDK installed on your local machine. Please follow the instructions at https://docs.aws.amazon.com/cdk/v2/guide/getting_started.html 
+
 ## Install the dependencies for the Lambda Layer 
 
 Then you need to install the packages needed for the Lambda Layer into the correct directory. Ensure you are in the root directory of this repository. 
