@@ -68,7 +68,7 @@ def transcribe_file(job_name, file_uri, transcribe_client):
         job_status = job['TranscriptionJob']['TranscriptionJobStatus']
         if job_status in ['COMPLETED', 'FAILED']:
             if job_status == 'COMPLETED':
-                transcript=requests.get(job['TranscriptionJob']['Transcript']['TranscriptFileUri']).json()
+                transcript=requests.get(job['TranscriptionJob']['Transcript']['TranscriptFileUri'], timeout=30).json()
                 
                 return (transcript["results"]["transcripts"][0]["transcript"])
             break

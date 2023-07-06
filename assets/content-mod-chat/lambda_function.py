@@ -30,7 +30,7 @@ def lambda_handler(event, context):
        # if we see negative sentiment pass it to the API endpoint to record the abuse 
        if returnedSentiment == "NEGATIVE":
            print ("NEGATIVE SENTIMENT DETECTED - Game ID:" + jsonInput["gameid"] + " Username: " + jsonInput["playerid"] + " Type: " + jsonInput["type"]);
-           httpcall=requests.put(API_ENDPOINT + "/recordAbuse",data={"gameid": jsonInput["gameid"], "playerid":jsonInput["playerid"] , "abusetype":jsonInput["type"], "abusecontent":jsonInput["data"]})
+           httpcall=requests.put(API_ENDPOINT + "/recordAbuse",data={"gameid": jsonInput["gameid"], "playerid":jsonInput["playerid"] , "abusetype":jsonInput["type"], "abusecontent":jsonInput["data"]}, timeout=30)
            print (httpcall)    
            print (httpcall.content)
        else:

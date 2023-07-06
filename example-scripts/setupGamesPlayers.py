@@ -20,7 +20,7 @@ def main(doReset,doPlayers,doGames,doPPP,doTransactions,endpoint):
 	### Reset the database 
 	if doReset == 1:
 		print ("Resetting Neptune DB")
-		httpcall=requests.get(endpoint + "/resetNeptune")      
+		httpcall=requests.get(endpoint + "/resetNeptune", timeout=30)      
 		print (httpcall.content)
 	
 	### create players 
@@ -59,23 +59,23 @@ def main(doReset,doPlayers,doGames,doPPP,doTransactions,endpoint):
 		
 def createPlayer(playerId):
 	print ("Creating player: " + playerId)
-	httpcall=requests.put(endpoint + "/createPlayer",data={"playerid": playerId })
+	httpcall=requests.put(endpoint + "/createPlayer",data={"playerid": playerId }, timeout=30)
 	print (httpcall.content)
 
 def createGame(gameId):
 	print ("Creating game: " + gameId)
-	httpcall=requests.put(endpoint + "/createGame",data={"gameid": gameId })
+	httpcall=requests.put(endpoint + "/createGame",data={"gameid": gameId }, timeout=30)
 	print (httpcall.content)
 
 def playerPlaysGame(gameid,playerid,duration):
 	duration=str(duration)
 	print ("Player " + playerid + " will play in game " + gameid + " for " + duration + "%")
-	httpcall=requests.put(endpoint + "/playerPlaysGame",data={"gameid": gameid , "playerid": playerid , "durationPercentage": duration })
+	httpcall=requests.put(endpoint + "/playerPlaysGame",data={"gameid": gameid , "playerid": playerid , "durationPercentage": duration }, timeout=30)
 	print (httpcall.content)
 
 def playerTransaction(playerid, transactionvalue, transactionid):
 	print ("Player " + playerid + " made a transaction: " + transactionid + " for " + transactionvalue + "USD")
-	httpcall=requests.put(endpoint + "/playerTransaction",data={"transactionid": transactionid , "playerid": playerid , "transactionvalue": transactionvalue })
+	httpcall=requests.put(endpoint + "/playerTransaction",data={"transactionid": transactionid , "playerid": playerid , "transactionvalue": transactionvalue }, timeout=30)
 	print (httpcall.content)
 
 if __name__ == "__main__":

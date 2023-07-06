@@ -48,7 +48,7 @@ def image_file(job_name, bucketname, file_uri, rek_client,gameid,playerid):
         labelString=labelName + " / " + parentName
         API_ENDPOINT = os.environ['API_ENDPOINT']
 
-        httpcall=requests.put(API_ENDPOINT + "/recordAbuse",data={"gameid": gameid, "playerid":playerid , "abusetype":"screenshot", "abusecontent":labelString})
+        httpcall=requests.put(API_ENDPOINT + "/recordAbuse",data={"gameid": gameid, "playerid":playerid , "abusetype":"screenshot", "abusecontent":labelString}, timeout=30)
 
     else:
         print ("No moderation event detected")
